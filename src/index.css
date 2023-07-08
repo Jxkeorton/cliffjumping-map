@@ -1,0 +1,965 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: #ececec;
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+/* Map styles */
+.map {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* location marker styles */
+.location-icon {
+  font-size: 2rem;
+  color: red;
+}
+
+/* Header/navbar CSS */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: #333;
+  color: white;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-title {
+  text-decoration: none;
+  color: white;
+}
+
+.header-img {
+  height: 50px;
+}
+
+nav p {
+  margin: 0 2rem;
+  color: white;
+  display: inline;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav p:hover {
+  color: #1e90ff;
+  cursor: pointer;
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+@media screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #333;
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .nav-btn:hover {
+    color: #1e90ff;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Footer CSS */
+.footer {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 20px;
+  background-color: black;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.footer:before {
+  content: "...";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.footer-img {
+  height: 90px;
+  margin-left: 30px;
+}
+
+/* Show full footer on hover */
+.footer:hover {
+  opacity: 1;
+  height: auto;
+}
+
+.footer .col {
+  width: 25%;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+}
+
+.footer .col h1 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: #1e90ff;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+
+.footer .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer .col ul li {
+  color: white;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+
+.f-a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+  .f-a:hover {
+    color: #1e90ff;
+  }
+  
+  .footer .col ul li:hover {
+    color: #ffffff;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+  }
+  
+  .clearfix {
+    clear: both;
+  }
+  
+  @media only screen and (min-width: 1280px) {
+    .contain {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media only screen and (max-width: 950px) {
+    .footer .col {
+      width: 33%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+  }
+  
+  @media only screen and (max-width: 340px) {
+    .footer .col {
+      width: 100%;
+    }
+  }
+  
+  /* Info Box */
+  .infoBox {
+    position: absolute;
+    margin-top: 90px;
+    top: 50px;
+    right: 50px;
+    width: 400px;
+    min-height: 100px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .infoBox ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .infoBox li {
+    padding: 5px 0;
+  }
+  
+  /* buttons for infobox */
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .infoBox-button-unsave {
+    width: 80px;
+    min-height: 30px;
+    background-color: #1e90ff;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  
+  .infoBox-button-save {
+    width: 80px;
+    min-height: 30px;
+    background-color: #df9c38;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  
+  .infoBox button:hover {
+    background-color: #1e90ff;
+    cursor: pointer;
+  }
+  
+  .infoBoxMore {
+    width: 80px;
+    min-height: 30px;
+    background-color: #333;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-left: auto;
+    color: whitesmoke;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .infoBox {
+      margin-top: 80px;
+      text-decoration: none;
+      top: 10px;
+      right: 10px;
+      width: 300px;
+      min-height: 80px;
+      padding: 15px;
+      font-size: 16px;
+    }
+  }
+  
+  /* Marker */
+  .custom-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Marker hover effect */
+  .custom-marker:hover {
+    background-color: #1e90ff;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  .custom-marker.highlighted {
+    background-color: #1e90ff;
+  }
+  
+  .custom-marker.saved {
+    background-color: blue;
+  }
+  
+  /* Marker inner content */
+  .custom-marker div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Log In styles */
+  .log-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .log-in-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .log-in-title {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #1e90ff;
+    text-shadow: 1px 1px 0 black;
+    margin-top: 150px;
+  }
+  
+  .log-in-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgb(247, 246, 246);
+  }
+  
+  .log-in-password {
+    position: relative;
+  }
+  
+  .log-in-input {
+    flex-grow: 1;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .log-in-show-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .log-in-forgot-password {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .log-in-forgot-password:hover {
+    color: #1e90ff;
+  }
+  
+  .log-in-bar {
+    padding-top: 5%;
+    width: 200px;
+  }
+    
+.log-in-button {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.log-in-button:hover {
+  background-color: #1e90ff;
+}
+
+.log-in-register-link {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.log-in-register-link:hover {
+  color: #1e90ff;
+}
+
+/* Profile styles */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.page-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logOut {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logOut:hover {
+  background-color: #1e90ff;
+}
+
+.profile-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile-info h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  margin: 5px 0;
+}
+
+/* Google auth button styles */
+.socialLogin {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialIconDiv {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.socialIconImg {
+  width: 100%;
+}
+
+/* Saved Locations cards for profile */
+
+.location-cards {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Saved-locations-h2 {
+  margin-left: 30px;
+}
+
+.locationLink {
+  color: black;
+  text-decoration: none;
+}
+
+.locationLink:hover {
+  color: white;
+}
+
+.card:hover {
+  background-color: #1e90ff;
+}
+
+.cardButton {
+  width: 80px;
+  background-color: #333;
+  font-weight: bold;
+  border-radius: 10px;
+  float: right;
+}
+
+.card button:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+
+/* Location page */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 20px;
+  transform: uppercase;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.paragraph {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.coordinates {
+  text-align: center;
+}
+
+.link {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.location-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location-details .subtitle {
+  color: #1e90ff;
+  margin-top: 10px;
+}
+
+.location-details ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.location-details li {
+  margin-bottom: 20px;
+}
+
+.location-details li .icon {
+  margin-right: 10px;
+}
+
+.location-details li strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.location-details li p {
+  margin: 0;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.comments .subtitle {
+  color: #1e90ff;
+}
+
+.comments ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comments li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.comments li:last-child {
+  border-bottom: none;
+}
+
+.comments li strong {
+  font-weight: bold;
+}
+
+.comments li .author {
+  color: #888;
+}
+
+.comments .add-comment {
+  margin-top: 20px;
+}
+
+.comments input[type='text'] {
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comments button {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.comments button:hover {
+  background-color: #1e90ff;
+}
+
+.LocationPageMap {
+  width: 90vh;
+  height: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .LocationPageMap {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}
+
+.go-to-google-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.go-to-google-button:hover {
+  background-color: #1e90ff;
+}
+
+/* Search results */
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px; 
+}
+
+.searchBar input {
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.searchBar button {
+  height: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBar button:hover {
+  background-color: #1e90ff;
+}
+
+.searchResults {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.searchResults:hover {
+  background-color: #1e90ff;
+  cursor: pointer;
+  color: #f9f9f9;
+}
+
+.resultsList {
+  height: 500px;
+  overflow-y: scroll;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/* Submit form styles */
+
+.submit-form-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.submit-form-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 20px;
+  transform: uppercase;
+}
+
+.submit-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.submit-form-container form .submit-form-group {
+  margin-bottom: 20px;
+}
+
+.submit-form-container form .submit-form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.submit-form-container form .submit-form-group input,
+.submit-form-container form .submit-form-group button {
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-form-container form .submit-form-group textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-form-container form .submit-form-group button {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-form-container form .submit-form-group button:hover {
+  background-color: #1e90ff;
+}
+
+.image-input {
+  display: none;
+}
+
+.image-input-label {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.image-input-label:hover {
+  background-color: #1e90ff;
+}
+
+.image-input-label:active {
+  background-color: #c1c1c1;
+}
+
+/* Home page styles */
+
+.home-container {
+  margin-top: 100px;
+}
+
+.submit-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  text-decoration: none;
+  color: #333333;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.submit-link:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.warning-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1a75d1;
+  max-width: 800px;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.warning-div h3 {
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.warning-div p {
+  margin: 10px;
+}
