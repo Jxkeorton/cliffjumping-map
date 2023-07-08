@@ -19,13 +19,15 @@ import {toast} from 'react-toastify'
 import { apiUrl } from '../env'
 
 interface Locations {
-  Name: string;
-  description: string;
-  gx_media_links: string;
+  properties: {
+    Name: string;
+    description: string;
+    gx_media_links: string;
+  };
   geometry: {
     type: string;
     coordinates: [number, number];
-  };
+};
 }
 
 const fetchData = async (): Promise<Locations[]> => {
@@ -81,17 +83,27 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Map eventData={eventData} />} />
-          <Route path='/location/:locationId' element={<Location />} />
-          <Route path='/profile' element={<PrivateRoute />} >
-            <Route path='/profile' element={<Profile />} />
-          </Route>
           <Route path='/log-in' element={<LogIn />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
-          <Route path='/search-locations' element={<Search />} />
-          <Route path='/submit' element={<Submit />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<PrivateRoute />} >
+            <Route path='/' element={<Map eventData={eventData} />} />
+          </Route>
+          <Route path='/profile' element={<PrivateRoute />} >
+            <Route path='/profile' element={<Profile />} />
+          </Route>
+          <Route path='/search-locations' element={<PrivateRoute />} >
+            <Route path='/search-locations' element={<Search />} />
+          </Route>
+          <Route path='/location/:locationId' element={<PrivateRoute />} >
+            <Route path='/location/:locationId' element={<Location />} />
+          </Route>
+          <Route path='/submit' element={<PrivateRoute />} >
+            <Route path='/submit' element={<Submit/>} />
+          </Route>
+          <Route path='/home' element={<PrivateRoute />} >
+            <Route path='/home' element={<Home/>} />
+          </Route>
         </Routes>
         <Header />
       </Router>

@@ -95,7 +95,7 @@ function Profile() {
 
   const onLogout = () => {
     auth.signOut();
-    navigate('/');
+    navigate('/log-in');
   }
 
   console.log('filtered locations:', filteredLocations)
