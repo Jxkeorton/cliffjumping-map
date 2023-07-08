@@ -9,13 +9,15 @@ import { apiUrl } from '../../../env';
 import {toast} from 'react-toastify'
 
 interface Location {
-  Name: string;
-  description: string;
-  gx_media_links: string;
+  properties: {
+    Name: string;
+    description: string;
+    gx_media_links: string;
+  };
   geometry: {
     type: string;
     coordinates: [number, number];
-  };
+};
 }
 
 interface ApiData {
@@ -65,7 +67,7 @@ function Profile() {
   }, []);
 
   useEffect(() => {
-    const filteredData = fetchedData.filter((obj: Location) => locations.includes(obj.Name));
+    const filteredData = fetchedData.filter((obj: Location) => locations.includes(obj.properties.Name));
     setFilteredLocations(filteredData);
 
   }, [locations, fetchedData]);
@@ -87,7 +89,7 @@ function Profile() {
       toast.success('Location deleted successfully');
   
       // Update the filteredLocations state by removing the deleted location
-      setFilteredLocations(filteredLocations.filter((location) => location.Name !== locationId));
+      setFilteredLocations(filteredLocations.filter((location) => location.properties.Name !== locationId));
     } catch (error) {
       toast.error('Could not delete location:');
     }

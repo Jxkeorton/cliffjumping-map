@@ -8,16 +8,12 @@ import { PacmanLoader } from 'react-spinners';
 
 const Submit = () => {
     const [formData, setFormData] = useState({
-        exitName: '',
-        rockdrop: '',
-        total: '',
-        anchor: '',
+        jumpName: '',
+        height: '',
         access: '',
         notes:'',
         coordinates:'',
-        cliffAspect:'',
         openedby:'',
-        dateOpened:'',
         email:'',
         video:'',
       });
@@ -70,25 +66,21 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
       // Display success message or perform any necessary actions
       toast.success('Form submitted successfully!');
       setFormData({
-        exitName: '',
-        rockdrop: '',
-        total: '',
-        anchor: '',
+        jumpName: '',
+        height: '',
         access: '',
-        notes: '',
-        coordinates: '',
-        cliffAspect: '',
-        openedby: '',
-        dateOpened: '',
-        email: '',
-        video: '',
+        notes:'',
+        coordinates:'',
+        openedby:'',
+        email:'',
+        video:'',
       });
       setImageFiles([]);
     } catch (error) {
       toast.error('Error adding document');
       console.log('error with form submit: ', error);
     } finally {
-        setIsLoading(false); // Hide loader
+        setIsLoading(false);
     }
   };
 
@@ -96,47 +88,26 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
 
   return (
     <div className="submit-form-container">
-      <h1>Submit A New Exit</h1>
+      <h1>Submit A New Jump</h1>
       <form onSubmit={handleSubmit}>
         <div className="submit-form-group">
-          <label htmlFor="exitName">Exit Name * :</label>
+          <label htmlFor="jumpName">Jump Name * :</label>
           <input
             type="text"
-            id="exitName"
-            name="exitName"
-            value={formData.exitName}
+            id="jumpName"
+            name="jumpName"
+            value={formData.jumpName}
             onChange={handleInputChange}
             required
           />
         </div>
         <div className="submit-form-group">
-          <label htmlFor="rockdrop">Rock drop in feet * :</label>
-          <input
-            type='number'
-            id="rockdrop"
-            name="rockdrop"
-            value={formData.rockdrop}
-            onChange={handleInputChange}
-            required
-          ></input>
-        </div>
-        <div className="submit-form-group">
-          <label htmlFor="total">Overall height in feet:</label>
+          <label htmlFor="height">Height in feet:</label>
           <input
             type="number"
-            id="total"
-            name="total"
-            value={formData.total}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="submit-form-group">
-          <label htmlFor="anchor">Anchor info:</label>
-        <input
-            type='text'
-            id="anchor"
-            name="anchor"
-            value={formData.anchor}
+            id="height"
+            name="height"
+            value={formData.height}
             onChange={handleInputChange}
           />
         </div>
@@ -170,16 +141,6 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
           />
         </div>
         <div className="submit-form-group">
-          <label htmlFor="cliffAspect">Cliff Aspect:</label>
-          <input
-            type="text"
-            id="cliffAspect"
-            name="cliffAspect"
-            value={formData.cliffAspect}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="submit-form-group">
           <label htmlFor="video">Video link:</label>
           <input
             type="text"
@@ -200,16 +161,6 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
           />
         </div>
         <div className="submit-form-group">
-          <label htmlFor="dateOpened">Opened date:</label>
-          <input
-            type="text"
-            id="dateOpened"
-            name="dateOpened"
-            value={formData.dateOpened}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="submit-form-group">
           <label htmlFor="email">Your email in case more info needed:</label>
           <input
             type="email"
@@ -220,11 +171,11 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
           />
         </div>
         <div className="submit-form-group">
-          <label htmlFor="image" className='image-input-label'>Upload Images</label>
+          <label htmlFor="imageFiles" className='image-input-label'>Upload Images</label>
           <input 
             type="file" 
-            id="image" 
-            name="image" 
+            id="imageFiles" 
+            name="imageFiles" 
             onChange={handleFileChange}
             className='image-input'
             multiple

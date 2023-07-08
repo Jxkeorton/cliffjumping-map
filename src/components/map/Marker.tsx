@@ -1,4 +1,4 @@
-import MountainIcon from "./icon";
+import WaterIcon from "./icon";
 
 interface MarkerProps {
   lat: number;
@@ -13,7 +13,7 @@ const Marker: React.FC<MarkerProps> = ({onClick, highlighted}) => (
       onClick={() => onClick({ name: "", coordinates: [0, 0] })}
       className={`custom-marker ${highlighted ? 'highlighted' : ''}`}
     >
-      <MountainIcon />
+      <WaterIcon />
     </div>
   );
 

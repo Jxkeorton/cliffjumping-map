@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 
 interface Location {
-  Name: string;
-  description: string;
-  gx_media_links: string;
+  properties: {
+    Name: string;
+    description: string;
+    gx_media_links: string;
+  };
   geometry: {
     type: string;
     coordinates: [number, number];
-  };
+};
 }
 
 interface Props {
@@ -22,14 +24,14 @@ const SavedLocations: React.FC<Props> = ({ data, onDelete }) => {
     
       <div className='location-cards'>
         {data.map((locationData: Location) =>(
-          <div key={locationData.Name} className='card'>
-            <Link to={`/location/${locationData.Name}`} className='locationLink' >
+          <div key={locationData.properties.Name} className='card'>
+            <Link to={`/location/${locationData.properties.Name}`} className='locationLink' >
               <div>
-                <h3>{locationData.Name}</h3>
+                <h3>{locationData.properties.Name}</h3>
                 <p>Coordinates: {locationData.geometry.coordinates.join(', ')}</p>
               </div>
             </Link>
-            <button onClick={() => onDelete(locationData.Name)} className='cardButton'><p>Unsave</p></button>
+            <button onClick={() => onDelete(locationData.properties.Name)} className='cardButton'><p>Unsave</p></button>
           </div>
         ))}
       </div>

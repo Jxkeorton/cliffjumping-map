@@ -297,7 +297,7 @@ header .nav-btn {
   .infoBox-button-save {
     width: 80px;
     min-height: 30px;
-    background-color: #df9c38;
+    background-color: #333;
     color: whitesmoke;
     font-weight: bold;
     border-radius: 10px;
@@ -585,6 +585,7 @@ header .nav-btn {
   font-weight: bold;
   border-radius: 10px;
   float: right;
+  color: white;
 }
 
 .card button:hover {
