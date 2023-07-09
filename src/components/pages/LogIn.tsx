@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import visibilityIcon from '../../assets/svg/visibilityIcon.svg'
-import OAuth from '../OAuth'
 import PacmanLoader from 'react-spinners/PacmanLoader'
 
 function LogIn() {
