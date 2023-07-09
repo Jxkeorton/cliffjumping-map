@@ -139,8 +139,6 @@ function LogIn() {
         </div>
       </form>
 
-      <OAuth />
-
       </div>
     </>
   )
