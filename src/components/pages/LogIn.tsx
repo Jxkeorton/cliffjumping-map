@@ -128,9 +128,6 @@ function LogIn() {
         <Link to="/forgot-password" className="log-in-forgot-password">
           Forgot Password
         </Link>
-        <Link to='/register' className='log-in-register-link' >
-        Register
-        </Link>
 
         <div className="log-in-bar">
         {isLoading ? (

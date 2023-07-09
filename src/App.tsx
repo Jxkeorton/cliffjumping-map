@@ -4,7 +4,6 @@ import { ToastContainer } from 'react-toastify'
 import Map from './components/map/Map'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import Register from './components/pages/Register'
 import LogIn from './components/pages/LogIn'
 import ForgotPassword from './components/pages/ForgotPassword'
 import Location from './components/pages/Location'
@@ -84,7 +83,6 @@ function App() {
       <Router>
         <Routes>
           <Route path='/log-in' element={<LogIn />} />
-          <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/' element={<PrivateRoute />} >
             <Route path='/' element={<Map eventData={eventData} />} />
