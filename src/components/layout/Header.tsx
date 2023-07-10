@@ -28,7 +28,7 @@ const Header = () => {
     <header>
       <h3>
         <Link to="/" className="header-title">
-          <h1>UKCJ Ambassador tool</h1>
+          <h1>UKCJ</h1><h5>ambassadors tool</h5>
         </Link>
       </h3>
       <nav className={isNavOpen ? 'responsive_nav' : ''} ref={navRef}>
