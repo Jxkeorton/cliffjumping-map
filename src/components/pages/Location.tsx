@@ -14,6 +14,7 @@ interface Location {
     Name: string;
     description: string;
     gx_media_links: string;
+    height: string;
   };
   geometry: {
     type: string;
@@ -204,7 +205,16 @@ function Location() {
     <div className="location-details">
       <h2 className="subtitle">Location Details</h2>
       <ul>
-
+        <li>
+          {location?.properties.height ? (
+            <div>
+              <h2>Height:</h2>
+              <p className='value' >{location.properties.height}ft</p>
+            </div>
+          ) : (
+            <p className="value"></p>
+          )}
+        </li>
         <li>
           {location?.properties.description ? (
             <div
@@ -215,6 +225,7 @@ function Location() {
             <h2 className="value">?</h2>
           )}
         </li>
+        
         
       </ul>
     </div>
