@@ -4,13 +4,15 @@ import { PacmanLoader } from 'react-spinners';
 import { apiUrl } from '../../../env';
 
 interface Location {
-  Name: string;
-  description: string;
-  gx_media_links: string;
+  properties: {
+    Name: string;
+    description: string;
+    gx_media_links: string;
+  };
   geometry: {
     type: string;
     coordinates: [number, number];
-  };
+};
 }
 
 function LocationsSearch() {
@@ -35,7 +37,7 @@ function LocationsSearch() {
 
             const lowercaseSearchQuery = searchQuery.toLowerCase();
             const filteredResults = data.filter((location: Location) =>
-            location.Name.toLowerCase().includes(lowercaseSearchQuery)
+            location.properties.Name.toLowerCase().includes(lowercaseSearchQuery)
             ).slice(0, 5);;
 
         setSearchResults(filteredResults);
@@ -72,7 +74,7 @@ function LocationsSearch() {
                 <div className='resultsList'>
                     <ul>
                         {searchResults.map((location) => (
-                            <LocationsResultsCard key={location.Name} location={location} />
+                            <LocationsResultsCard key={location.properties.Name} location={location} />
                         ))}
                     </ul>
                 </div>

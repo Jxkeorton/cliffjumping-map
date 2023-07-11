@@ -1,20 +1,23 @@
 import { useNavigate } from 'react-router-dom';
 
 interface Location {
-  Name: string;
-  description: string;
-  gx_media_links: string;
+  properties: {
+    Name: string;
+    description: string;
+    gx_media_links: string;
+  };
   geometry: {
     type: string;
     coordinates: [number, number];
-  };
+};
 }
 
 interface Props {
   location: Location;
 }
 
-const LocationsResultsCard: React.FC<Props> = ({ location: { Name } }) => {
+const LocationsResultsCard: React.FC<Props> = ({ location }) => {
+  const {Name} = location.properties;
   const navigate = useNavigate();
 
   const handleClick = () => {
