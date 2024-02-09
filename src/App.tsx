@@ -15,7 +15,6 @@ import PrivateRoute from './components/PrivateRoute'
 import Search from './components/search/Search'
 import { PacmanLoader } from 'react-spinners';
 import {toast} from 'react-toastify'
-import { apiUrl } from '../env'
 
 interface Locations {
   properties: {
@@ -31,7 +30,7 @@ interface Locations {
 
 const fetchData = async (): Promise<Locations[]> => {
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch('https://github.com/Jxkeorton/APIs/blob/main/cliffjump.json');
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
