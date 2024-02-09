@@ -46,7 +46,7 @@ const Map: React.FC<MapProps> = ({ eventData }) => {
   return (
     <div className="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: apiKey }}
+        bootstrapURLKeys={{ key: 'AIzaSyDsDcQb5TxfLwM7LLZRPtXNC1qy4eIzFDw' }}
         defaultCenter={{ lat: 51.5074, lng: -0.1858 }}
         defaultZoom={7}
       >
