@@ -30,7 +30,7 @@ interface Locations {
 
 const fetchData = async (): Promise<Locations[]> => {
   try {
-    const response = await fetch('https://github.com/Jxkeorton/APIs/blob/main/cliffjump.json');
+    const response = await fetch('https://raw.githubusercontent.com/Jxkeorton/APIs/main/cliffjump.json');
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

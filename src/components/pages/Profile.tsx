@@ -50,7 +50,7 @@ function Profile() {
 
           setLocations(locationIds)
 
-          const response = await fetch('https://github.com/Jxkeorton/APIs/blob/main/cliffjump.json');
+          const response = await fetch('https://raw.githubusercontent.com/Jxkeorton/APIs/main/cliffjump.json');
           const data: ApiData = await response.json();
 
           setFetchedData(data.locations)
