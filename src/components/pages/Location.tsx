@@ -5,7 +5,6 @@ import { db } from '../../../firebase.config';
 import { getAuth } from 'firebase/auth';
 import { PacmanLoader } from 'react-spinners';
 import LocationMap from '../pagecomponents/LocationMap'
-import { apiUrl } from '../../../env';
 import {toast} from 'react-toastify'
 import Filter from 'bad-words'
 
@@ -60,7 +59,7 @@ function Location() {
           throw new Error('Location ID is undefined');
         }
     
-        const response = await fetch(apiUrl);
+        const response = await fetch('https://github.com/Jxkeorton/APIs/blob/main/cliffjump.json');
         if (!response.ok) {
           throw new Error('Failed to fetch location');
         }

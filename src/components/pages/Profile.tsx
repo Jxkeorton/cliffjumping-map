@@ -5,7 +5,6 @@ import SavedLocations from '../pagecomponents/SavedLocations';
 import { doc, getDoc, updateDoc, arrayRemove } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
 import { PacmanLoader } from 'react-spinners';
-import { apiUrl } from '../../../env';
 import {toast} from 'react-toastify'
 
 interface Location {
@@ -51,7 +50,7 @@ function Profile() {
 
           setLocations(locationIds)
 
-          const response = await fetch(apiUrl);
+          const response = await fetch('https://github.com/Jxkeorton/APIs/blob/main/cliffjump.json');
           const data: ApiData = await response.json();
 
           setFetchedData(data.locations)
