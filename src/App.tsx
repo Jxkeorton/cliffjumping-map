@@ -58,6 +58,7 @@ function App() {
         setEventData(locations);
       } catch (error) {
         toast.error('Error fetching locations');
+        console.error(error)
       } finally {
         setLoading(false);
       }
