@@ -1,4 +1,4 @@
-# UK BASE Map
+# UK Cliff Jumping Map
 
 ## Description
 This application is a map-based platform designed to pin and provide information about all known cliff jumping locations in the United Kingdom. It aims to be the first map dedicated to detailing cliff jumping spots and provides users with a user-friendly and interactive interface.
