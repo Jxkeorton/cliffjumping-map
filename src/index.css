@@ -852,7 +852,6 @@ header .nav-btn {
 .submit-form-container form {
   display: flex;
   flex-direction: column;
-  align-items: left;
 }
 
 .submit-form-container form .submit-form-group {
