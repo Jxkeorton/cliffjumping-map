@@ -1,6 +1,6 @@
 # UK Cliff Jumping Map
 
-![amiresponsive](public/assets/map.png)
+![amiresponsive](public/assets/amiresponsive.png)
 
 [Live Site](https://ukcj-map.com/)
 
