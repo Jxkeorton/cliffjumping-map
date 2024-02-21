@@ -12,7 +12,6 @@
   - [Design](#design)
     - [Colours Used](#colours-used)
     - [Typography](#typography)
-    - [Imagery](#imagery)
 - [Actual Features](#actual-features)
 - [Technologies Used](#technologies-used)
   - [Languages, Frameworks, Libraries \& Programs Used](#languages-frameworks-libraries--programs-used)
