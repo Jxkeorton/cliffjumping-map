@@ -37,11 +37,11 @@ const Header = () => {
             {item.icon && <FontAwesomeIcon icon={item.icon} />} {item.label}
           </p>
         ))}
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+        <button className="nav-btn nav-close-btn" onClick={showNavbar} aria-label="Open Navigation">
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      <button className="nav-btn" onClick={showNavbar} aria-label="Close Navigation">
         <FontAwesomeIcon icon={faBars} />
       </button>
     </header>

@@ -19,12 +19,6 @@ interface MapProps {
   eventData: Locations[];
 }
 
-const apiKey: string = process.env.GOOGLE_MAPS_API_KEY || '';
-
-if (!apiKey) {
-  console.error("Google Maps API key is missing or empty. Please provide a valid API key.");
-}
-
 const Map: React.FC<MapProps> = ({ eventData }) => {
   const [infoBox, setInfoBox] = useState<Locations | null>(null);
 

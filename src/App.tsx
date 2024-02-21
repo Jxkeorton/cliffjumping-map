@@ -84,9 +84,9 @@ function App() {
         <Routes>
           <Route path='/log-in' element={<LogIn />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
-          <Route path='/' element={<PrivateRoute />} >
+          
             <Route path='/' element={<Map eventData={eventData} />} />
-          </Route>
+         
           <Route path='/profile' element={<PrivateRoute />} >
             <Route path='/profile' element={<Profile />} />
           </Route>
